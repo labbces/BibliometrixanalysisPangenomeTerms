@@ -1,6 +1,23 @@
 library(ggplot2)
 library(dplyr)
 
+#Number of paper per years come from SCOPUS searches
+#
+#Group 1 Query in Scopus
+## TITLE-ABS-KEY(pangenome OR "pan-genome")
+## AND TITLE-ABS-KEY("core genome")
+## AND TITLE-ABS-KEY("accessory genome" 
+## OR "dispensable genome" 
+## OR "unique genome" 
+## OR "exclusive genome")
+#Group 2 Query in Scopus:
+## TITLE-ABS-KEY(pangenome OR "pan-genome")
+## AND TITLE-ABS-KEY("core")
+## AND TITLE-ABS-KEY("shell")
+## AND TITLE-ABS-KEY("cloud")
+#Pangenome Query in Scopus, used for normalization:
+## TITLE-ABS-KEY(pangenome OR "pan-genome")
+
 txt <- "
 Year\tCategory\tNumber Papers
 2026\tPangenome\t59
@@ -199,4 +216,5 @@ ggplot(plot_pct, aes(x = Year, y = Percent,
   labs(x = "Year",
        y = "Percent of pangenome papers (%)",
        color = "Terminology group")
+
 
